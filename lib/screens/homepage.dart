@@ -1,9 +1,11 @@
+import 'package:canteeno/screens/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:canteeno/datasets/cart.dart';
 import 'package:provider/provider.dart';
 import 'package:canteeno/models/adding_removing.dart';
 import 'package:canteeno/segments/slideup_cart.dart';
+
 class SnackOrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,16 +18,18 @@ class SnackOrderScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.orange,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.menu, color: Colors.black),
-          onPressed: () {},
-        ),
+        elevation: 100,
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => profilescreen(),
+                    ));
+              },
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.orange[100],

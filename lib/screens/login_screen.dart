@@ -79,7 +79,7 @@ class _AnimatedLoginScreenState extends State<AnimatedLoginScreen>
                         .user;
 
                     if (user != null) {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                             builder: (context) => SnackOrderScreen(),
