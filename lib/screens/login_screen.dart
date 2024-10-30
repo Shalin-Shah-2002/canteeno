@@ -82,7 +82,7 @@ class _AnimatedLoginScreenState extends State<AnimatedLoginScreen>
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const Homepage(),
+                            builder: (context) => SnackOrderScreen(),
                           ));
                     }
                   },

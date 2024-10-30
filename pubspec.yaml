@@ -40,6 +40,8 @@ dependencies:
   cloud_firestore: ^5.4.4
   firebase_storage: ^12.3.3
   provider: ^6.1.2
+  google_fonts: ^6.2.1
+  # upi_india: ^3.0.1
 
 dev_dependencies:
   flutter_test:
