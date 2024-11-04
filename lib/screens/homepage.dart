@@ -7,6 +7,8 @@ import 'package:canteeno/models/adding_removing.dart';
 import 'package:canteeno/segments/slideup_cart.dart';
 
 class SnackOrderScreen extends StatelessWidget {
+  const SnackOrderScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     AddingRemoving addremove =
@@ -27,7 +29,7 @@ class SnackOrderScreen extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => profilescreen(),
+                      builder: (context) => const profilescreen(),
                     ));
               },
               child: Container(
@@ -35,9 +37,9 @@ class SnackOrderScreen extends StatelessWidget {
                   color: Colors.orange[100],
                   shape: BoxShape.circle,
                 ),
-                child: Icon(Icons.person),
                 height: 50,
                 width: 50,
+                child: Icon(Icons.person),
               ),
             ),
           )
@@ -57,9 +59,9 @@ class SnackOrderScreen extends StatelessWidget {
               style: GoogleFonts.poppins(
                   fontSize: 32, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             // Categories List
-            Container(
+            SizedBox(
               height: 40,
               child: ListView(
                 scrollDirection: Axis.horizontal,
@@ -71,16 +73,16 @@ class SnackOrderScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Text(
               "Choco Collections",
               style: GoogleFonts.poppins(fontSize: 20),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             // Snack Items Grid
             Expanded(
               child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 16,
                   mainAxisSpacing: 16,
@@ -133,7 +135,7 @@ class SnackOrderScreen extends StatelessWidget {
                                       color: Colors.black54,
                                     ),
                                   ),
-                                  SizedBox(height: 8),
+                                  const SizedBox(height: 8),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -148,7 +150,7 @@ class SnackOrderScreen extends StatelessWidget {
                                       Row(
                                         children: [
                                           IconButton(
-                                            icon: Icon(Icons.remove),
+                                            icon: const Icon(Icons.remove),
                                             onPressed: quantity > 0
                                                 ? () {
                                                     setState(() {
@@ -165,7 +167,7 @@ class SnackOrderScreen extends StatelessWidget {
                                             ),
                                           ),
                                           IconButton(
-                                            icon: Icon(Icons.add),
+                                            icon: const Icon(Icons.add),
                                             onPressed: () {
                                               setState(() {
                                                 quantity++;
@@ -176,7 +178,7 @@ class SnackOrderScreen extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(height: 8),
+                                  const SizedBox(height: 8),
                                   // Add to Cart Button
                                   SizedBox(
                                     width: double.infinity,
@@ -256,14 +258,14 @@ class SnackOrderScreen extends StatelessWidget {
                     );
                   },
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 Text(
                   'Items in cart',
                   style: GoogleFonts.poppins(fontSize: 18),
                 ),
-                Spacer(),
+                const Spacer(),
                 IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.keyboard_arrow_up,
                     size: 25,
                   ),
@@ -285,7 +287,7 @@ class CategoryChip extends StatelessWidget {
   final String label;
   final bool isSelected;
 
-  CategoryChip({required this.label, this.isSelected = false});
+  const CategoryChip({super.key, required this.label, this.isSelected = false});
 
   @override
   Widget build(BuildContext context) {

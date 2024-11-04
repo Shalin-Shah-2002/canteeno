@@ -8,7 +8,7 @@ void showCartBottomSheet(BuildContext context) {
   showModalBottomSheet(
     context: context,
     backgroundColor: Colors.white,
-    shape: RoundedRectangleBorder(
+    shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
     ),
     builder: (context) {
@@ -26,7 +26,7 @@ void showCartBottomSheet(BuildContext context) {
               style: GoogleFonts.poppins(
                   fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             addremove.cartItemCount == 0
                 ? Center(
                     child: Text(
@@ -58,7 +58,7 @@ void showCartBottomSheet(BuildContext context) {
                                 fontSize: 14, color: Colors.black54),
                           ),
                           trailing: IconButton(
-                            icon: Icon(Icons.remove_circle, color: Colors.red),
+                            icon: const Icon(Icons.remove_circle, color: Colors.red),
                             onPressed: () {
                               addremove.Remove(item['food_name']);
                             },
@@ -67,7 +67,7 @@ void showCartBottomSheet(BuildContext context) {
                       },
                     ),
                   ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -81,7 +81,7 @@ void showCartBottomSheet(BuildContext context) {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange,
-                    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   ),
                   onPressed: () {
                     // Proceed to checkout logic.

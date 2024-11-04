@@ -6,6 +6,8 @@ import 'package:canteeno/models/firebase_auth.dart';
 import 'package:provider/provider.dart';
 
 class AnimatedRegisterScreen extends StatefulWidget {
+  const AnimatedRegisterScreen({super.key});
+
   @override
   _AnimatedRegisterScreenState createState() => _AnimatedRegisterScreenState();
 }
@@ -83,7 +85,7 @@ class _AnimatedRegisterScreenState extends State<AnimatedRegisterScreen>
                     if (username.isEmpty || email.isEmpty || password.isEmpty) {
                       // Show an error message or a snackbar to the user
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Please fill in all fields')),
+                        const SnackBar(content: Text('Please fill in all fields')),
                       );
                       return;
                     }
@@ -140,7 +142,7 @@ class _AnimatedRegisterScreenState extends State<AnimatedRegisterScreen>
           borderRadius: BorderRadius.circular(20),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.orange),
+          borderSide: const BorderSide(color: Colors.orange),
           borderRadius: BorderRadius.circular(20),
         ),
       ),

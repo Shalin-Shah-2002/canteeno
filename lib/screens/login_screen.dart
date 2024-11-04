@@ -7,6 +7,8 @@ import 'package:provider/provider.dart';
 import 'package:canteeno/models/firebase_auth.dart';
 
 class AnimatedLoginScreen extends StatefulWidget {
+  const AnimatedLoginScreen({super.key});
+
   @override
   _AnimatedLoginScreenState createState() => _AnimatedLoginScreenState();
 }
@@ -48,12 +50,12 @@ class _AnimatedLoginScreenState extends State<AnimatedLoginScreen>
       body: FadeTransition(
         opacity: _animation,
         child: Padding(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Login',
                   style: TextStyle(
                     fontSize: 32,
@@ -61,15 +63,15 @@ class _AnimatedLoginScreenState extends State<AnimatedLoginScreen>
                     color: Colors.orange,
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 _buildTextField(Icons.email, 'Email', emailController),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 _buildTextField(
                     Icons.lock,
                     'Password',
                     obscureText: true,
                     passwordController),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 ElevatedButton(
                   onPressed: () {
                     Provider.of<FirebaseAuthentication>(context, listen: false)
@@ -92,14 +94,14 @@ class _AnimatedLoginScreenState extends State<AnimatedLoginScreen>
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Login',
                     style: TextStyle(fontSize: 18),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 TextButton(
                   onPressed: () {
                     // Add navigation to registration screen
@@ -109,7 +111,7 @@ class _AnimatedLoginScreenState extends State<AnimatedLoginScreen>
                           builder: (context) => AnimatedRegisterScreen(),
                         ));
                   },
-                  child: Text(
+                  child: const Text(
                     'Don\'t have an account? Sign up',
                     style: TextStyle(color: Colors.orange),
                   ),
@@ -136,7 +138,7 @@ class _AnimatedLoginScreenState extends State<AnimatedLoginScreen>
           borderRadius: BorderRadius.circular(20),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.orange),
+          borderSide: const BorderSide(color: Colors.orange),
           borderRadius: BorderRadius.circular(20),
         ),
       ),

@@ -25,18 +25,20 @@ class AddingRemoving extends ChangeNotifier {
         .map((snapshot) => snapshot.docs.length);
   }
 
-  Future Add(String food_name, String price, String quantity) async {
+  Future Add(String foodName, String price, String quantity) async {
     try {
       await storeinstance
           .collection('User')
           .doc(Authinstance.currentUser?.uid)
           .collection('cart')
-          .doc(food_name)
-          .set({'food_name': food_name, 'price': price, 'quantity': quantity});
+          .doc(foodName)
+          .set({'food_name': foodName, 'price': price, 'quantity': quantity});
       fetchAllDocuments();
     } catch (e) {
       print(e.toString());
     }
+
+    
   }
 
   Future<void> Remove(String foodName) async {

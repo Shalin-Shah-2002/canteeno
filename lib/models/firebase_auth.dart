@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -21,20 +20,16 @@ class FirebaseAuthentication extends ChangeNotifier {
       UserCredential credential =
           await Authinstance.createUserWithEmailAndPassword(
               email: email, password: password);
-      if (credential != null) {
-        await firestore
-            .collection('User')
-            .doc(credential.user?.uid)
-            .collection('Reginfo')
-            .doc(username)
-            .set({
-          'username': username,
-          'email': email,
-          'createdat': Timestamp.now()
-        });
-      } else {
-        print('User creation failed: user is null.');
-      }
+      await firestore
+          .collection('User')
+          .doc(credential.user?.uid)
+          .collection('Reginfo')
+          .doc(username)
+          .set({
+        'username': username,
+        'email': email,
+        'createdat': Timestamp.now()
+      });
     } catch (e) {
       print(e.toString());
     }
@@ -44,8 +39,6 @@ class FirebaseAuthentication extends ChangeNotifier {
     try {
       await Authinstance.signInWithEmailAndPassword(
           email: email, password: password);
-
-      
     } catch (e) {
       print(e.toString());
     }

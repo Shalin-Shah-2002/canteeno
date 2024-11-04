@@ -1,6 +1,6 @@
 import 'package:canteeno/models/firebase_auth.dart';
+import 'package:canteeno/models/profile_backend.dart';
 import 'package:canteeno/screens/login_screen.dart';
-import 'package:canteeno/screens/reg_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -24,6 +24,9 @@ class Myapp extends StatelessWidget {
           ),
           ChangeNotifierProvider<AddingRemoving>(
               create: (context) => AddingRemoving()),
+          ChangeNotifierProvider<ProfileBackend>(
+            create: (context) => ProfileBackend(),
+          )
         ],
         child: MaterialApp(
             debugShowCheckedModeBanner: false, home: AnimatedLoginScreen()));
