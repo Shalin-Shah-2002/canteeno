@@ -101,11 +101,7 @@ class _profilescreenState extends State<profilescreen> {
                 padding: const EdgeInsets.all(40.0),
                 child: ElevatedButton(
                   onPressed: () {
-                    signout.Signout();
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const AnimatedLoginScreen()));
+                    
                   },
                   style: const ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(

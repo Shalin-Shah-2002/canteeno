@@ -1,4 +1,5 @@
 import 'package:canteeno/screens/profile.dart';
+import 'package:canteeno/screens/profile_Menu.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:canteeno/datasets/cart.dart';
@@ -29,7 +30,7 @@ class SnackOrderScreen extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const profilescreen(),
+                      builder: (context) => const ProfileScreen(),
                     ));
               },
               child: Container(

@@ -6,7 +6,7 @@ import 'package:canteeno/screens/homepage.dart';
 class FirebaseAuthentication extends ChangeNotifier {
   FirebaseAuth Authinstance = FirebaseAuth.instance;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
-
+  Stream<User?> get userChanges => Authinstance.authStateChanges();
   User? _user;
 
   User? get user => _user;

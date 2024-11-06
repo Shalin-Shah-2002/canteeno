@@ -2,7 +2,8 @@ import 'package:canteeno/screens/payment.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:canteeno/models/adding_removing.dart'; // Assuming you have this class managing adding/removing items.
+import 'package:canteeno/models/adding_removing.dart'; // Assumi
+import 'package:canteeno/models/payment_provider.dart'; // Assuming you have this class managing adding/removing items.
 
 void showCartBottomSheet(BuildContext context) {
   showModalBottomSheet(
@@ -14,6 +15,7 @@ void showCartBottomSheet(BuildContext context) {
     builder: (context) {
       // Accessing the cart data using Provider.
       var addremove = Provider.of<AddingRemoving>(context, listen: true);
+      final paymentModel = Provider.of<PaymentModel>(context);
 
       return Padding(
         padding: const EdgeInsets.all(16.0),
@@ -58,7 +60,8 @@ void showCartBottomSheet(BuildContext context) {
                                 fontSize: 14, color: Colors.black54),
                           ),
                           trailing: IconButton(
-                            icon: const Icon(Icons.remove_circle, color: Colors.red),
+                            icon: const Icon(Icons.remove_circle,
+                                color: Colors.red),
                             onPressed: () {
                               addremove.Remove(item['food_name']);
                             },
@@ -81,16 +84,16 @@ void showCartBottomSheet(BuildContext context) {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange,
-                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24, vertical: 12),
                   ),
                   onPressed: () {
-                    // Proceed to checkout logic.
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => PaymentPage(
-                    //             totalPrice: addremove.totalPrice
-                    //                 .toDouble()))); // Close the bottom sheet.
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PaymentScreen()),
+                    );
+                    paymentModel.updateAmount(addremove.totalPrice.toString());
+                    print('Amount: ${paymentModel.amount}');
                   },
                   child: Text(
                     'Checkout',
