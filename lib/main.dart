@@ -8,9 +8,11 @@ import 'package:provider/provider.dart';
 import 'package:canteeno/models/adding_removing.dart';
 import 'package:canteeno/screens/homepage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:canteeno/models/changeprovider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp();
   runApp(const Myapp());
 }
@@ -32,7 +34,9 @@ class Myapp extends StatelessWidget {
           ),
           ChangeNotifierProvider<PaymentModel>(
             create: (context) => PaymentModel(),
-          )
+          ),
+          ChangeNotifierProvider<CaloriesProvider>(
+              create: (context) => CaloriesProvider())
         ],
         child: MaterialApp(
             debugShowCheckedModeBanner: false, home: AuthWrapper()));
@@ -45,12 +49,11 @@ class AuthWrapper extends StatelessWidget {
     final authService = Provider.of<FirebaseAuthentication>(context);
 
     return StreamBuilder<User?>(
-      stream: authService.userChanges, // This listens to user state changes
+      stream: authService.userChanges,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return CircularProgressIndicator();
         }
-        // If the user is signed in, show HomeScreen; otherwise, show LoginScreen
         return snapshot.hasData ? SnackOrderScreen() : AnimatedLoginScreen();
       },
     );

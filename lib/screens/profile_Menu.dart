@@ -1,4 +1,5 @@
 import 'package:canteeno/models/firebase_auth.dart';
+import 'package:canteeno/models/profile_backend.dart';
 import 'package:canteeno/screens/login_screen.dart';
 import 'package:canteeno/screens/profile.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 class ProfileScreen extends StatelessWidget {
+  @override
   const ProfileScreen({super.key});
   @override
   Widget build(BuildContext context) {
@@ -69,12 +71,12 @@ class ProfileScreen extends StatelessWidget {
 }
 
 class ProfilePic extends StatelessWidget {
-  const ProfilePic({
-    Key? key,
-  }) : super(key: key);
+  const ProfilePic({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final profileBackend = Provider.of<ProfileBackend>(context);
+
     return SizedBox(
       height: 115,
       width: 115,
@@ -82,10 +84,7 @@ class ProfilePic extends StatelessWidget {
         fit: StackFit.expand,
         clipBehavior: Clip.none,
         children: [
-          const CircleAvatar(
-            backgroundImage:
-                NetworkImage("https://i.postimg.cc/0jqKB6mS/Profile-Image.png"),
-          ),
+          CircleAvatar(),
           Positioned(
             right: -16,
             bottom: 0,
@@ -94,14 +93,13 @@ class ProfilePic extends StatelessWidget {
               width: 46,
               child: TextButton(
                 style: TextButton.styleFrom(
-                  foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
                     side: const BorderSide(color: Colors.white),
                   ),
                   backgroundColor: const Color(0xFFF5F6F9),
                 ),
-                onPressed: () {},
+                onPressed: () async {},
                 child: SvgPicture.string(cameraIcon),
               ),
             ),

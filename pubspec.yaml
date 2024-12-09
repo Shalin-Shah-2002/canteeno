@@ -38,11 +38,12 @@ dependencies:
   firebase_core: ^3.6.0
   firebase_auth: ^5.3.1
   cloud_firestore: ^5.4.4
-  firebase_storage: ^12.3.3
+  firebase_storage: ^12.3.6
   provider: ^6.1.2
   google_fonts: ^6.2.1
   flutter_upi_india: ^0.0.5
   flutter_svg: ^2.0.13
+  image_picker: ^1.1.2
   # upi_india: ^3.0.0
 
 dev_dependencies:
